@@ -2,17 +2,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { HelloComponent } from './hello/hello.component';
+import { RepeatDirective } from './repeat.directive';
+
+ 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HelloComponent
+    RepeatDirective,
   ],
   imports: [
     BrowserModule
   ],
   providers: [],
-  bootstrap: [HelloComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
