@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { RepeatDirective } from './repeat.directive';
+import { MessageDirective } from './message.directive';
 
  
 
@@ -10,6 +11,7 @@ import { RepeatDirective } from './repeat.directive';
   declarations: [
     AppComponent,
     RepeatDirective,
+    MessageDirective,
   ],
   imports: [
     BrowserModule

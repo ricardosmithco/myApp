@@ -9,6 +9,7 @@ export class AppComponent {
   isAuthenticated: boolean;
   submitted: boolean = false;
   username: string;
+  myMessage: string = "badman a badman"
 
   colorName: string = 'yellow';
   color: string = 'red';
