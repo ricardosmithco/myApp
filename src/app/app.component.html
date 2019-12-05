@@ -1,4 +1,4 @@
-<div *ngIf="!submitted">
+<!--<div *ngIf="!submitted">
   <form>
     <label for="username">User Name</label>
     <input type="text" #username><br/><br/>
@@ -21,7 +21,7 @@
 <p *appRepeat="3">Redel..</p>
 
 <div *ngIf="submitted">
-  <div *ngIf="isAuthenticated">
+  <div *ngIf="isAuthenticated"> 
     <h4>Welcome {{username}}</h4>
     <ul *ngFor="let course of courses; let i=index;">
       {{i}} - Course ID: {{course.id}} <br>
@@ -32,5 +32,32 @@
     <h4>invalid Login !!! Please try again...</h4>
   </div>
   <button (click)="submitted=false">Back</button>
+</div> -->
+
+
+<h3> Structural Directive with exportAs property</h3>
+
+<ng-template appRepeat #rd="repeat" #ct="changeText">
+  <p>I am being repeated</p>
+</ng-template>
+
+<button (click)="rd.repeatElement(5)">Repeat Element</button>
+<button (click)="ct.changeElementText(5)">Change Text</button>
+
+<div [style.background-color]="colorName" [style.color]="color" [style.border]="borderStyle">
+  Uses the Sttribute Directive [style.css-property]="whatever variable name is in .ts file"
+</div>
+<br/>
+<div [ngStyle]="{color: color, borderBottom: borderStyle}">
+  How about we do a custom style binding using [ngStyle]
+</div>
+<br/>
+
+<div [class.bordered]="isBordered">
+  Border {{ isBordered ? "ON" : "OFF" }}
+</div>
+
+<div [ngClass]="{bordered: isBordered, color: color}">
+  Border {{ isBordered ? "ON" : "OFF"}}
 </div>
 

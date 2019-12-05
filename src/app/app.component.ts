@@ -10,6 +10,12 @@ export class AppComponent {
   submitted: boolean = false;
   username: string;
 
+  colorName: string = 'yellow';
+  color: string = 'red';
+  borderStyle = '1px solid black';
+  isBordered: boolean = true;
+  isColor: boolean = true;
+
   onSubmit(name: string, password: string): void{
     this.submitted = true;
     this.username = name;
