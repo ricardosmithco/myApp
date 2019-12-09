@@ -65,5 +65,28 @@
 <p [appMessage]="myMessage">Click Here</p>
 <br/>
 
+<button (click)="showOrHideCourseTable()">View Courses</button><br/><br/>
+<div *ngIf="show">
+  <app-course-list></app-course-list>
+</div>
+
+<div>
+  <h2 style="color: green"> Popular Caribbean countries</h2>
+
+  Select a course to View
+  <select #country (change)="countrylist.changeCountry(country.value)">
+    <option value="none" selected disabled>Select a Country</option>
+    <option value="Trinidad & Tobago">Trinidad & Tobago</option>
+    <option value="Jamaica">Jamaica</option>
+    <option value="Antigua">Antigua</option>
+    <option value="St. Kitts">St. Kitts</option>
+    <option value="Puerto Rico">Puerto Rico</option>
+  </select>
+  <br/>
+  <br/>
+
+  <app-country-list #countrylist="countrylist"></app-country-list>
+</div>
+
 
 

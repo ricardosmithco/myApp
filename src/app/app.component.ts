@@ -40,6 +40,11 @@ export class AppComponent {
       this.value = 0;
     }
   }
+
+  show: boolean = false;
+  showOrHideCourseTable(){
+    this.show = !this.show;
+  }
 }
 
 
