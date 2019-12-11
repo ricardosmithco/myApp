@@ -45,6 +45,11 @@ export class AppComponent {
   showOrHideCourseTable(){
     this.show = !this.show;
   }
+
+  message: string;
+  buyComputer(computerName: string){
+    this.message = `You have selected to buy this ${computerName}, is this correct?` ;
+  }
 }
 
 

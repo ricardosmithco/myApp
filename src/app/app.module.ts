@@ -6,6 +6,7 @@ import { RepeatDirective } from './repeat.directive';
 import { MessageDirective } from './message.directive';
 import { CourseListComponent } from './course-list/course-list.component';
 import { CountryListComponent } from './country-list/country-list.component';
+import { ComputerListComponent } from './computer-list/computer-list.component';
 
  
 
@@ -15,7 +16,8 @@ import { CountryListComponent } from './country-list/country-list.component';
     RepeatDirective,
     MessageDirective,
     CourseListComponent,
-    CountryListComponent
+    CountryListComponent,
+    ComputerListComponent
   ],
   imports: [
     BrowserModule

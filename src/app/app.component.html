@@ -88,5 +88,27 @@
   <app-country-list #countrylist="countrylist"></app-country-list>
 </div>
 
+<div>
+  <p>Popular Computers @ competitive prices</p>
+
+  Use drop-down to see our amazing prices
+  <select #selectedOption (click)="computerName = selectedOption.value">
+    <option selected hidden disabled>Select Computer</option>
+    <option value="Dell">Dell</option>
+    <option value="HP">HP</option>
+    <option value="Apple">Apple</option>
+  </select>
+
+  <app-computer-list 
+  (onRegister)="buyComputer($event)" 
+  [setComputerName]="computerName"
+  ></app-computer-list>
+
+  <!--(onRegister) transfers data from child to parent component
+      while [setComputerName] transfers data from parent to child component-->
+  
+  <p *ngIf="message"> {{message}}</p>
+</div>
+
 
 
