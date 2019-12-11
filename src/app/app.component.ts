@@ -48,8 +48,16 @@ export class AppComponent {
 
   message: string;
   buyComputer(computerName: string){
-    this.message = `You have selected to buy this ${computerName}, is this correct?` ;
+    this.message = `You have selected to buy this ${computerName}, for is this correct?` ;
   }
+
+  invoice: any[];
+  purchase(phone: any){
+    this.invoice = [];
+    this.invoice.push(phone);
+  }
+
+  now: Date = new Date();
 }
 
 

@@ -7,6 +7,7 @@ import { MessageDirective } from './message.directive';
 import { CourseListComponent } from './course-list/course-list.component';
 import { CountryListComponent } from './country-list/country-list.component';
 import { ComputerListComponent } from './computer-list/computer-list.component';
+import { PhoneListComponent } from './phone-list/phone-list.component';
 
  
 
@@ -17,7 +18,8 @@ import { ComputerListComponent } from './computer-list/computer-list.component';
     MessageDirective,
     CourseListComponent,
     CountryListComponent,
-    ComputerListComponent
+    ComputerListComponent,
+    PhoneListComponent
   ],
   imports: [
     BrowserModule

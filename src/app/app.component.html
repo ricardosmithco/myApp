@@ -34,80 +34,96 @@
   <button (click)="submitted=false">Back</button>
 </div> -->
 
+<div class="highlight">
 
-<h3> Structural Directive with exportAs property</h3>
 
-<ng-template appRepeat #rd="repeat" #ct="changeText">
-  <p>I am being repeated</p>
-</ng-template>
+  <h3> Structural Directive with exportAs property</h3>
 
-<button (click)="rd.repeatElement(5)">Repeat Element</button>
-<button (click)="ct.changeElementText(5)">Change Text</button>
+  <ng-template appRepeat #rd="repeat" #ct="changeText">
+    <p>I am being repeated</p>
+  </ng-template>
 
-<div [style.background-color]="colorName" [style.color]="color" [style.border]="borderStyle">
-  Uses the Sttribute Directive [style.css-property]="whatever variable name is in .ts file"
-</div>
-<br/>
-<div [ngStyle]="{color: color, borderBottom: borderStyle}">
-  How about we do a custom style binding using [ngStyle]
-</div>
-<br/>
+  <button (click)="rd.repeatElement(5)">Repeat Element</button>
+  <button (click)="ct.changeElementText(5)">Change Text</button>
 
-<div [class.bordered]="isBordered">
-  Border {{ isBordered ? "ON" : "OFF" }}
-</div>
+  <div [style.background-color]="colorName" [style.color]="color" [style.border]="borderStyle">
+    Uses the Sttribute Directive [style.css-property]="whatever variable name is in .ts file"
+  </div>
+  <br/>
+  <div [ngStyle]="{color: color, borderBottom: borderStyle}">
+    How about we do a custom style binding using [ngStyle]
+  </div>
+  <br/>
 
-<div [ngClass]="{bordered: isBordered, color: color}">
-  Border {{ isBordered ? "ON" : "OFF"}}
-</div>
+  <div [class.bordered]="isBordered">
+    Border {{ isBordered ? "ON" : "OFF" }}
+  </div>
 
-<h3>Attribute Directive</h3>
-<p [appMessage]="myMessage">Click Here</p>
-<br/>
+  <div [ngClass]="{bordered: isBordered, color: color}">
+    Border {{ isBordered ? "ON" : "OFF"}}
+  </div>
 
-<button (click)="showOrHideCourseTable()">View Courses</button><br/><br/>
-<div *ngIf="show">
-  <app-course-list></app-course-list>
-</div>
+  <h3>Attribute Directive</h3>
+  <p [appMessage]="myMessage">Click Here</p>
+  <br/>
 
-<div>
-  <h2 style="color: green"> Popular Caribbean countries</h2>
+  <button (click)="showOrHideCourseTable()">View Courses</button><br/><br/>
+  <div *ngIf="show">
+    <app-course-list></app-course-list>
+  </div>
 
-  Select a course to View
-  <select #country (change)="countrylist.changeCountry(country.value)">
-    <option value="none" selected disabled hidden>Select a Country</option>
-    <option value="Trinidad & Tobago">Trinidad & Tobago</option>
-    <option value="Jamaica">Jamaica</option>
-    <option value="Antigua">Antigua</option>
-    <option value="St. Kitts">St. Kitts</option>
-    <option value="Puerto Rico">Puerto Rico</option>
-  </select>
+  <div>
+    <h2 style="color: green"> Popular Caribbean countries</h2>
+
+    Select a course to View
+    <select #country (change)="countrylist.changeCountry(country.value)">
+      <option value="none" selected disabled hidden>Select a Country</option>
+      <option value="Trinidad & Tobago">Trinidad & Tobago</option>
+      <option value="Jamaica">Jamaica</option>
+      <option value="Antigua">Antigua</option>
+      <option value="St. Kitts">St. Kitts</option>
+      <option value="Puerto Rico">Puerto Rico</option>
+    </select>
+    <br/>
+    <br/>
+
+    <app-country-list #countrylist="countrylist"></app-country-list>
+  </div>
+
+  <div>
+    <p>Popular Computers @ competitive prices</p>
+
+    Use drop-down to see our amazing prices
+    <select #selectedOption (click)="computerName = selectedOption.value">
+      <option selected hidden disabled>Select Computer</option>
+      <option value="Dell">Dell</option>
+      <option value="HP">HP</option>
+      <option value="Apple">Apple</option>
+    </select>
+
+    <app-computer-list 
+    (onRegister)="buyComputer($event)" 
+    [setComputerName]="computerName"
+    ></app-computer-list>
+
+    <!--(onRegister) transfers data from child to parent component
+        while [setComputerName] transfers data from parent to child component-->
+    
+    <p *ngIf="message"> {{message}}</p>
+  </div>
   <br/>
   <br/>
 
-  <app-country-list #countrylist="countrylist"></app-country-list>
-</div>
+  <app-phone-list (onRegister)="purchase($event)"></app-phone-list>
+  <p>Here is your invoice: </p>
+  <ul *ngFor="let phone of invoice">
+    <li>Phone brand : {{ phone.name }}</li>
+    <li>Phone brand : {{ phone.price }}</li>
+    <li>Phone Memory: {{ phone.specs.memory }}</li>
+    <li>Phone Screen size: {{ phone.specs.screenSize }}</li>
+    <li>Purchased at: {{now}}</li>
+  </ul>
 
-<div>
-  <p>Popular Computers @ competitive prices</p>
-
-  Use drop-down to see our amazing prices
-  <select #selectedOption (click)="computerName = selectedOption.value">
-    <option selected hidden disabled>Select Computer</option>
-    <option value="Dell">Dell</option>
-    <option value="HP">HP</option>
-    <option value="Apple">Apple</option>
-  </select>
-
-  <app-computer-list 
-  (onRegister)="buyComputer($event)" 
-  [setComputerName]="computerName"
-  ></app-computer-list>
-
-  <!--(onRegister) transfers data from child to parent component
-      while [setComputerName] transfers data from parent to child component-->
-  
-  <p *ngIf="message"> {{message}}</p>
 </div>
 
 

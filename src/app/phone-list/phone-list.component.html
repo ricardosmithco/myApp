@@ -1,0 +1,24 @@
+<div>
+    <table border="1">
+        <thead>
+            <tr>
+                <td>Brand</td>
+                <td>Price</td>
+                <td>Memory (GB)</td>
+                <td>Screen Size</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let singlePhone of phones">
+                <td>{{ singlePhone.name }}</td>
+                <td>{{ singlePhone.price }}</td>
+                <td>{{ singlePhone.specs.memory }}</td>
+                <td>{{ singlePhone.specs.screenSize }}</td>
+                <td>
+                        <button (click)="purchasePhone(singlePhone)">Purchase</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

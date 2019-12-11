@@ -1,14 +1,16 @@
-<table border="1" *ngIf="country">
-    <thead>
-        <tr>
-            <td>Country ID</td>
-            <td>Country Name</td>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let c of country">
-            <td>{{ c.countryId }}</td>
-            <td>{{ c.countryName }} </td>
-        </tr>
-    </tbody>
-</table>
+<div class="highlight">
+    <table border="1" *ngIf="country">
+        <thead>
+            <tr>
+                <td>Country ID</td>
+                <td>Country Name</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let c of country">
+                <td>{{ c.countryId }}</td>
+                <td>{{ c.countryName }} </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
