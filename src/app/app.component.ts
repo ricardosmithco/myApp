@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, DoCheck, AfterContentInit, AfterContentChecked,
+         AfterViewInit, AfterViewChecked, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit, DoCheck, AfterContentInit, AfterContentChecked,
+                                     AfterViewInit, AfterViewChecked, OnDestroy {
+
   isAuthenticated: boolean;
   submitted: boolean = false;
   username: string;
@@ -17,6 +20,9 @@ export class AppComponent {
   isBordered: boolean = true;
   isColor: boolean = true;
 
+  imageUrl: string = "https://images.unsplash.com/photo-1575081151297-19c23575e91b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+  columnJoin: number = 2
+  
   onSubmit(name: string, password: string): void{
     this.submitted = true;
     this.username = name;
@@ -57,7 +63,37 @@ export class AppComponent {
     this.invoice.push(phone);
   }
 
-  now: Date = new Date();
+  // Here below is our exploration of various lifecycle methods:
+
+  data: string = "Angular 2";
+
+  ngOnInit(){
+    console.log('Init');
+  }
+
+  ngDoCheck(){
+    console.log('Change detected');
+  }
+
+  ngAfterContentInit(){
+    console.log("After content init");
+  }
+
+  ngAfterContentChecked(){
+    console.log('After content checked');
+  }
+
+  ngAfterViewInit(){
+    console.log('After view init');
+  }
+
+  ngAfterViewChecked(){
+    console.log('After view checked');
+  }
+
+  ngOnDestroy(){
+    console.log('Destroy');
+  }
 }
 
 

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { RepeatDirective } from './repeat.directive';
@@ -8,6 +9,7 @@ import { CourseListComponent } from './course-list/course-list.component';
 import { CountryListComponent } from './country-list/country-list.component';
 import { ComputerListComponent } from './computer-list/computer-list.component';
 import { PhoneListComponent } from './phone-list/phone-list.component';
+import { ChildComponent } from './child/child.component';
 
  
 
@@ -19,10 +21,12 @@ import { PhoneListComponent } from './phone-list/phone-list.component';
     CourseListComponent,
     CountryListComponent,
     ComputerListComponent,
-    PhoneListComponent
+    PhoneListComponent,
+    ChildComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

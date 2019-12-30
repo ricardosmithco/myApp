@@ -34,6 +34,9 @@
   <button (click)="submitted=false">Back</button>
 </div> -->
 
+<!-----------------------Divider! either use code above or below----------------------->
+
+<!--
 <div class="highlight">
 
 
@@ -106,8 +109,8 @@
     [setComputerName]="computerName"
     ></app-computer-list>
 
-    <!--(onRegister) transfers data from child to parent component
-        while [setComputerName] transfers data from parent to child component-->
+    (onRegister) transfers data from child to parent component == these two lines supposed to be commented out.
+        while [setComputerName] transfers data from parent to child component
     
     <p *ngIf="message"> {{message}}</p>
   </div>
@@ -126,5 +129,31 @@
 
 </div>
 
+-->
+
+<div>
+  <h1>I'm a container component</h1>
+  <input type="text" [(ngModel)]='data'>
+  <app-child [title]="data"></app-child>
+</div>
+
+
+  <img [src]="imageUrl" width=200 height=100> <br/><br/>
+
+  <table border='1'>
+    <tr>
+      <td [attr.colspan]="columnJoin">first</td>
+      <td>Second</td>
+    </tr>
+    <tr>
+      <td>Third</td>
+      <td>Fourth</td>
+      <td>Sixth</td>
+    </tr>
+  </table>
+
+  <br/><br/>
+
+  <button [style.color]=" 'green' ">Style Binding example</button>
 
 
